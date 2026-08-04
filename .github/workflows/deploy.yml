@@ -24,6 +24,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Deploy new container
+        run: |
+            docker stop devops-app || true
+            docker rm devops-app || true
+            docker run -d -p 80:80 --name devops-app jahongir98/devops-app:latest
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
