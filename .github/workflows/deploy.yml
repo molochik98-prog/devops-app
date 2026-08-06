@@ -23,3 +23,6 @@ jobs:
           docker stop devops-app || true
           docker rm devops-app || true
           docker run -d -p 80:80 --name devops-app jahongir98/devops-app:latest
+
+      - name: Clean up old Docker images
+        run: docker image prune -f
