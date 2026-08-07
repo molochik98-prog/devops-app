@@ -19,10 +19,7 @@ jobs:
           docker build -t jahongir98/devops-app:latest .
 
       - name: Deploy container
-        run: |
-          docker stop devops-app || true
-          docker rm devops-app || true
-          docker run -d --restart unless-stopped -p 8080:80 --name devops-app jahongir98/devops-app:latest
+        run: docker compose up -d
 
       - name: Clean up old Docker images
         run: docker image prune -f
