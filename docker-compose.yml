@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: jahongir98/davops-app:latest
+    image: jahongir98/devops-app:latest
     container_name: devops-app
     restart: unless-stopped
     ports:
